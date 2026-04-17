@@ -102,9 +102,7 @@ export default function SuggestionsColumn({ settings, transcript, suggestionBatc
       </div>
 
       <div className="panel-content">
-        <div style={{ padding: '16px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--panel-border)', borderRadius: 6, fontSize: 13, color: 'var(--text-muted)', lineHeight: '1.6' }}>
-          On reload (or auto every ~30s), generate <span style={{ color: 'white', fontWeight: 500 }}>3 fresh suggestions</span> from recent transcript context. New batch appears at the top; older batches push down (faded). Each is a tappable card: a <span style={{ color: 'var(--tag-question)' }}>question to ask</span>, a <span style={{ color: 'var(--tag-talking-point)' }}>talking point</span>, an <span style={{ color: 'var(--tag-answer)' }}>answer</span>, or a <span style={{ color: 'var(--tag-fact-check)' }}>fact check</span>. The preview alone should already be useful.
-        </div>
+
 
         {errorMsg && (
           <div style={{ padding: 12, backgroundColor: 'rgba(239,68,68,0.1)', color: '#ef4444', borderRadius: 6, fontSize: 13 }}>

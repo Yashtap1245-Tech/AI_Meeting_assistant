@@ -76,9 +76,11 @@ export default function ChatColumn({ settings, transcript, chatHistory, setChatH
       </header>
       
       <div className="panel-content" ref={scrollRef}>
-        <div style={{ padding: '16px', backgroundColor: 'rgba(31, 41, 55, 0.5)', borderRadius: 8, fontSize: 13, marginBottom: 16, color: 'var(--text-muted)' }}>
-          Clicking a suggestion adds it to this chat and streams a detailed answer (separate prompt, more context). User can also type questions directly. One continuous chat per session — no login, no persistence.
-        </div>
+        {chatHistory.length === 0 && (
+          <div style={{ textAlign: 'center', color: 'var(--text-muted)', marginTop: 40, fontSize: 14 }}>
+            Click a suggestion or type a question below.
+          </div>
+        )}
 
         {chatHistory.map((msg) => (
           <div key={msg.id} className={`chat-message ${msg.role}`}>

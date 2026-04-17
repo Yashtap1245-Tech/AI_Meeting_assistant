@@ -9,7 +9,7 @@ interface Props {
 
 export default function SettingsModal({ settings, onSave, onClose }: Props) {
   const [apiKey, setApiKey] = useState(settings.apiKey);
-  const [modelId, setModelId] = useState(settings.modelId || 'llama-3.1-70b-versatile');
+  const [modelId, setModelId] = useState(settings.modelId || 'openai/gpt-oss-120b');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,10 +50,10 @@ export default function SettingsModal({ settings, onSave, onClose }: Props) {
                 required
                 value={modelId}
                 onChange={e => setModelId(e.target.value)}
-                placeholder="llama-3.1-70b-versatile"
+                placeholder="openai/gpt-oss-120b"
               />
               <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>
-                Ensure your Groq key has access to the specified model (e.g. llama-3.1-70b-versatile).
+                Ensure your API key has access to the specified model (e.g. openai/gpt-oss-120b).
               </p>
             </div>
 

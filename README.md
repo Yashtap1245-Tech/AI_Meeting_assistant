@@ -1,4 +1,4 @@
-# TwinMind Web Client
+# AI Assistant Web Client
 
 A full-stack, client-only React Single Page Application (SPA) providing real-time AI transcription and context-aware suggestions utilizing the Groq API.
 

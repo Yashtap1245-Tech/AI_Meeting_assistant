@@ -10,8 +10,8 @@ import { transcribeAudio } from './utils/groq';
 
 function App() {
   const [settings, setSettings] = useState<AppSettings>(() => {
-    const saved = localStorage.getItem('twinmind-settings');
-    return saved ? JSON.parse(saved) : { apiKey: '', modelId: 'llama-3.1-70b-versatile' };
+    const saved = localStorage.getItem('ai-assistant-settings');
+    return saved ? JSON.parse(saved) : { apiKey: '', modelId: 'openai/gpt-oss-120b' };
   });
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(!settings.apiKey);
@@ -46,7 +46,7 @@ function App() {
 
   const handleSaveSettings = (newSettings: AppSettings) => {
     setSettings(newSettings);
-    localStorage.setItem('twinmind-settings', JSON.stringify(newSettings));
+    localStorage.setItem('ai-assistant-settings', JSON.stringify(newSettings));
     setIsSettingsOpen(false);
   };
 
@@ -67,7 +67,7 @@ function App() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `twinmind-session-${new Date().toISOString()}.json`;
+    a.download = `ai-assistant-session-${new Date().toISOString()}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -76,7 +76,7 @@ function App() {
     <>
       <header className="app-header">
         <div>
-          <div className="app-title">TwinMind — Live Suggestions Web App (Reference Mockup)</div>
+          <div className="app-title">AI Assistant — Live Suggestions Web App (Reference Mockup)</div>
         </div>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
           <div className="app-subtitle">

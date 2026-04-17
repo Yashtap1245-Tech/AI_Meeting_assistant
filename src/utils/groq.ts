@@ -72,7 +72,7 @@ ${transcript}
       'Authorization': `Bearer ${apiKey}`
     },
     body: JSON.stringify({
-      model: modelId || 'llama-3.1-70b-versatile',
+      model: modelId || 'openai/gpt-oss-120b',
       messages: [
         { role: 'user', content: prompt }
       ],
@@ -141,7 +141,7 @@ ${transcriptContext}
       'Authorization': `Bearer ${apiKey}`
     },
     body: JSON.stringify({
-      model: modelId || 'llama-3.1-70b-versatile',
+      model: modelId || 'openai/gpt-oss-120b',
       messages: messagesPayload,
       temperature: 0.5,
       stream: true
