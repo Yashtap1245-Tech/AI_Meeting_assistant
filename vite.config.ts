@@ -2,7 +2,13 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { execSync } from 'node:child_process'
 
-const appCommit = execSync('git rev-parse --short HEAD').toString().trim()
+const appCommit = (() => {
+  try {
+    return execSync('git rev-parse --short HEAD').toString().trim()
+  } catch {
+    return process.env.REPL_ID?.slice(0, 7) || 'unknown'
+  }
+})()
 
 // https://vite.dev/config/
 export default defineConfig({
