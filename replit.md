@@ -18,4 +18,4 @@ This is a client-only React single page application built with Vite and TypeScri
 - Development command: `npm run dev`
 - Frontend port: `5000`
 - No backend service or database is used.
-- Production deployment is configured as a static site built with `npm run build` and served from `dist`.
+- Production deployment builds with `npm run build` and runs `npm start`, which serves the generated `dist` folder with `serve` on port `5000`.
