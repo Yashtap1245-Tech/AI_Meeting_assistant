@@ -11,6 +11,7 @@ This is a client-only React single page application built with Vite and TypeScri
 - `src/hooks/useAudioRecorder.ts` manages browser microphone recording.
 - `src/utils/groq.ts` contains client-side Groq API calls.
 - `vite.config.ts` configures Vite for Replit preview on `0.0.0.0:5000` with proxy host support.
+- The app header displays the short Git commit hash embedded at build time via Vite.
 
 ## Runtime
 

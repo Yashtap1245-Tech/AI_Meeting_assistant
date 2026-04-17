@@ -8,6 +8,8 @@ import type { AppSettings, ChatMessage, SuggestionBatch, TranscriptSegment } fro
 import { useAudioRecorder } from './hooks/useAudioRecorder';
 import { transcribeAudio } from './utils/groq';
 
+const appCommit = __APP_COMMIT__;
+
 function App() {
   const [settings, setSettings] = useState<AppSettings>(() => {
     const saved = localStorage.getItem('ai-assistant-settings');
@@ -77,6 +79,7 @@ function App() {
       <header className="app-header">
         <div>
           <div className="app-title">AI Assistant — Live Suggestions Web App (Reference Mockup)</div>
+          <div className="app-version">Version {appCommit}</div>
         </div>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
           <div className="app-subtitle">
