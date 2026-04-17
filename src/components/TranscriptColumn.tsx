@@ -5,9 +5,10 @@ interface Props {
   transcript: TranscriptSegment[];
   isRecording: boolean;
   toggleRecording: () => void;
+  error?: string | null;
 }
 
-export default function TranscriptColumn({ transcript, isRecording, toggleRecording }: Props) {
+export default function TranscriptColumn({ transcript, isRecording, toggleRecording, error }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll
@@ -30,6 +31,12 @@ export default function TranscriptColumn({ transcript, isRecording, toggleRecord
         </div>
         <span>{isRecording ? 'Recording... Click to stop.' : 'Stopped. Click to resume.'}</span>
       </div>
+
+      {error && (
+        <div style={{ margin: '0 16px 16px', padding: 12, backgroundColor: 'rgba(239,68,68,0.1)', color: '#ef4444', borderRadius: 6, fontSize: 13 }}>
+          {error}
+        </div>
+      )}
 
       <div className="panel-content" ref={scrollRef}>
         {transcript.map((t) => (

@@ -22,10 +22,12 @@ function App() {
   const [suggestionBatches, setSuggestionBatches] = useState<SuggestionBatch[]>([]);
   const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
   const [forceFetchSuggestions, setForceFetchSuggestions] = useState(false);
+  const [transcriptError, setTranscriptError] = useState<string | null>(null);
 
   const handleChunkReady = useCallback(async (blob: Blob) => {
     if (!settings.apiKey) return;
     try {
+      setTranscriptError(null);
       const text = await transcribeAudio(blob, settings.apiKey);
       if (text) {
         setTranscript(prev => [
@@ -39,8 +41,9 @@ function App() {
         // Trigger a fetch after successful transcript upload
         setForceFetchSuggestions(true);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
+      setTranscriptError(`Transcription Error: ${err.message || 'Check your API Key and Model'}`);
     }
   }, [settings.apiKey]);
 
@@ -99,6 +102,7 @@ function App() {
           transcript={transcript}
           isRecording={isRecording}
           toggleRecording={toggleRecording}
+          error={transcriptError}
         />
 
         <SuggestionsColumn
