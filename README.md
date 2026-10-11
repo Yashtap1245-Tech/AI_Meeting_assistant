@@ -2,7 +2,7 @@
 
 A full-stack, client-only React Single Page Application (SPA) designed to act as a real-time meeting companion. It provides live AI transcription, automated context-aware suggestions, and instantaneous conversational capabilities.
 
-Try it out, Deployment valid until (05/16/2026) : https://ai-meetingassistant--yashtap1245.replit.app/
+Try it out, Deployment valid until (11/11/2026) : https://ai-meetingassistant--yashtap1245.replit.app/
 
 <img width="1912" height="863" alt="image" src="https://github.com/user-attachments/assets/9bbd7bf8-f5ed-4689-9589-816463663a47" />
 
